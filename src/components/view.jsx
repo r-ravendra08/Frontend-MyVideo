@@ -18,21 +18,18 @@ const SeeOne = () => {
   const loadUser = async () => {
     const result = await axios.get(BASE_URL + `/get/${id}`);
     setUser(result.data);
-    console.log("something wrong")
-    setUser(result.data);
   };
 
 
 
   return (
-
-    <div style={{ display: "flex", justifyContent: "center" }}>
+    
       <div style={{ width: "100%" }}>
         <div
           style={{
             border: "3px solid #ccc",
             borderRadius: "8px",
-            padding: "16px",
+            padding: "1px",
             marginTop: "10px",
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
           }}
@@ -40,8 +37,8 @@ const SeeOne = () => {
           <h2 style={{ textAlign: "center", marginBottom: "10px" }}>POST DETAILS</h2>
           <div className="card">
             <div className="card-header">
-              <div style={{ maxWidth: "100%", backgroundColor: "black" }}>
-                <video poster="https://play-lh.googleusercontent.com/oB12-6RptJzx0x4fwhQr7CvhlTUSTdU2T9nczVHA9tIqzoOqayWz8mYM74ywoUYjIEo=w240-h480-rw" controls width="600" height="300">
+              <div style={{ maxWidth: "100%"}}>
+                <video controls width="100%" height="400">
                   <source
                     src={BASE_URL + "/play/" + id}
                     type="video/mp4"
@@ -68,8 +65,7 @@ const SeeOne = () => {
           </div>
         </div>
       </div>
-    </div>
-
+  
 
   )
 }

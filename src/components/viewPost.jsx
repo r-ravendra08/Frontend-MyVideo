@@ -28,7 +28,9 @@ const ViewPost = () => {
       console.log(response);
       setLoading(true);
     } catch (error) {
-      alert(error.message);
+      // alert(error.message);
+      swal("Oops!", error.message, "error");
+
     }
   };
   useEffect(() => {
@@ -43,19 +45,19 @@ const ViewPost = () => {
       buttons: true,
       dangerMode: true,
     })
-    .then((willDelete) => {
-      if (willDelete) {
-        DeletePostService(id);
-        swal("Poof! Your post has been deleted!", {
-          icon: "success",
-        });
-        window.location.reload(); // Reload the page after deletion
-      } else {
-        swal("Your post is safe!");
-      }
-    });
+      .then((willDelete) => {
+        if (willDelete) {
+          DeletePostService(id);
+          swal("Poof! Your post has been deleted!", {
+            icon: "success",
+          });
+          window.location.reload(); // Reload the page after deletion
+        } else {
+          swal("Your post is safe!");
+        }
+      });
   }
-  
+
 
   const handleExpand = (postId) => {
     setExpandedStates(prevStates => ({
@@ -65,80 +67,86 @@ const ViewPost = () => {
   };
 
   return (
-   
+
     <div>
-       <Header/>
-      
-
       <Container>
-        <Card>
-          <Row>
-            {loading &&
-              posts.map((post) => (
-                <Col key={post.id}>
-                  <Card className="m-2 p-1 rounded h-100">
-                    <Card.Header><Card.Title>{post.title}</Card.Title></Card.Header>
-                    <Card.Body>
-                      <div style={{ maxWidth: "100%" }}>
-                        <video controls width="250" height="150">
-                          <source
-                            src={BASE_URL + "/play/" + post.id}
-                            type="video/mp4"
-                            alt=""
-                          />
-                        </video>
-                      </div>
-                      <Card.Title>{post.title}</Card.Title>
-                      <Card.Subtitle>
-                        <Card.Text>
-                          <strong style={{ color: "blue" }}>{post.tags}</strong>
-                        </Card.Text>
-                      </Card.Subtitle>
+        <Row>
+          {loading && posts.map((post) => (
+            <Col key={post.id} sm={4} className="mb-4"> {/* Specify sm={4} for small screens */}
+              <Card className="h-100">
+                <Card.Header><Card.Title>{post.title}</Card.Title></Card.Header>
+                <Card.Body>
+                  <div style={{ maxWidth: "100%" }}>
+                    <video controls width="380" height="150">
+                      <source
+                        src={`${BASE_URL}/play/${post.id}`} // Use template literals for string interpolation
+                        type="video/mp4"
+                        alt=""
+                      />
+                    </video>
+                  </div>
+                  <Card.Subtitle>
+                    <Card.Text>
+                      <strong style={{ color: "blue" }}>{post.tags}</strong>
+                    </Card.Text>
+                  </Card.Subtitle>
 
-                      <div style={{ padding: "12px" }}>
-                        <p className="text-left">
-                          {expandedStates[post.id]
-                            ? post.description
-                            : `${post.description.slice(0, 30)}...`}
-                        </p>
-                        <Link
-                          size="xs"
-                          variant="white"
-                          onClick={() => handleExpand(post.id)}
-                        >
-                          {expandedStates[post.id] ? "Read less" : "Read more"}
-                        </Link>
-                      </div>
-                      <div>
-                        <Button className="btn-light"
-                          style={{ marginRight: "5px" }}
-                          onClick={() => handleDelete(post.id)}
-                        ><img src="https://cdn-icons-png.flaticon.com/512/9790/9790368.png" width="30px" height=
-                          "30px" /></Button>
-                        <Link
-                          className={"btn btn-outline-light mx-2"}
-                          to={`/edit/${post.id}`}
-                        >
-                          <img src="https://cdn-icons-png.flaticon.com/512/10336/10336582.png" width="30px" height=
-                            "30px" />{" "}
-                        </Link>
+                  <div style={{ padding: "12px" }}>
+                    <p className="text-left">
+                      {expandedStates[post.id]
+                        ? post.description
+                        : `${post.description.slice(0, 30)}...`}
+                    </p>
+                    <Link
+                      size="xs"
+                      variant="white"
+                      onClick={() => handleExpand(post.id)}
+                    >
+                      {expandedStates[post.id] ? "Read less" : "Read more"}
+                    </Link>
+                  </div>
+                  <div>
+                    <Button
+                      className="btn-light"
+                      style={{ marginRight: "5px" }}
+                      onClick={() => handleDelete(post.id)}
+                    >
+                      <img
+                        src="https://cdn-icons-png.flaticon.com/512/9790/9790368.png"
+                        width="30px"
+                        height="30px"
+                        alt="Delete"
+                      />
+                    </Button>
+                    <Link
+                      className="btn btn-outline-light mx-2"
+                      to={`/edit/${post.id}`}
+                    >
+                      <img
+                        src="https://cdn-icons-png.flaticon.com/512/10336/10336582.png"
+                        width="30px"
+                        height="30px"
+                        alt="Edit"
+                      />
+                    </Link>
 
-                        <Link
-                          className={"btn btn-light mx-2"}
-                          to={`/viewone/${post.id}`}
-                        >
-                          <img src="https://cdn-icons-png.flaticon.com/512/2901/2901214.png" width="30px" height=
-                            "30px" />
-                        </Link>
-                      </div>
-
-
-                    </Card.Body>
-                  </Card>
-                </Col>
-              ))}
-          </Row>
-        </Card>
+                    <Link
+                      className="btn btn-light mx-2"
+                      to={`/viewone/${post.id}`}
+                    >
+                      <img
+                        src="https://cdn-icons-png.flaticon.com/512/2901/2901214.png"
+                        width="30px"
+                        height="30px"
+                        alt="View"
+                      />
+                    </Link>
+                  </div>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
       </Container>
     </div>
   );

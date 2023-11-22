@@ -67,8 +67,8 @@ const AddVideo = () => {
         //submit call starts here .
         SaveVideoInfo(video).then((data) => {
             console.log(data);
-            
-            UplaodVideo(videos, data.id,singleFileOptions).then((data) => {
+
+            UplaodVideo(videos, data.id, singleFileOptions).then((data) => {
                 setLoading(true)
                 swal("Uploaded!", "Video upload success!!", "success");
                 console.log(data);
@@ -83,7 +83,7 @@ const AddVideo = () => {
             setVideo({
                 title: "", description: "", tags: "",
             });
-            
+
         }).catch((error) => {
             // alert("upload failed")
             console.log(error);
@@ -92,12 +92,9 @@ const AddVideo = () => {
         });
     }
     return (
-        <div className='wrapper'>
-            <Container>
-                <Container className="mb-2 p-4">
-                    <Button color="primary" size="lg" href="/">Click to Watch Videos</Button>
-                </Container>
-                <Card className="shadow-sm border-1 mt-2 border-radius-2">
+        <div className='wrapper d-flex align-items-center justify-content-center'>
+            <Container className='col-4'>
+                <Card className=" shadow-sm border-1  border-radius-2">
                     <CardBody>
                         <h3><strong>Form for Uploading Video</strong></h3>
                         <Form onSubmit={createVideo}>
