@@ -36,14 +36,13 @@ export default function Login() {
         event.preventDefault();
         
         axios.post(`${USER_BASE_URL}/login`, data).then(
-        // axios.post(`https://ats.irix.in:6161/login`, data).then(
 
             (response) => {
                 const token = response.data.token;
 
                 // Store the token in local storage
                 localStorage.setItem('token', token);
-                console.log("login data saved in local storage::<br/>"+token);
+                // console.log("login data saved in local storage.<br/>");
                 swal("Logged in", "Login success!!", "success");
                 navigate(`/user`);
             }, (error) => {

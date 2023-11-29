@@ -7,7 +7,8 @@ const Header = () => {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar navbar-dark bg-dark mb-3">
-        <a className="navbar-brand mx-5" href="/Add">Add Video</a>
+        
+        <a className="navbar-brand mx-5" href="/">HOME</a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -15,17 +16,17 @@ const Header = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-autoS">
             <li className="nav-item active mx-5">
-              <a className="nav-link" href="">About Us</a>
+              <a className="nav-link" href="">ABOUT US</a>
             </li>
             <li className="nav-item active mx-5">
-              <a className="nav-link" href="">Contact Us</a>
+              <a className="nav-link" href="">CONTACT US</a>
             </li>
             <li className="nav-item active mx-5">
-              <a className="nav-link" href="/login">Users</a>
+              <a className="nav-link" href="/login">USERS</a>
             </li>
             {token ? (
               <li className="nav-item active mx-5">
-                <a className="nav-link" href="/logout">Logout</a>
+                <a className="nav-link" href="/logout">LOGOUT</a>
               </li>
             ) : null}
           </ul>
