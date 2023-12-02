@@ -8,100 +8,10 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import 'react-circular-progressbar/dist/styles.css';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
-import { Row } from 'react-bootstrap';
 
 
 import React, { useEffect, useState } from 'react';
 import { PROFILE_BASE_URL } from '../urls/baseUrl';
-
-
-
-
-
-
-// // let navigate = useNavigate();
-// // const [video, setVideo] = useState({
-
-// //     title: "",
-// //     tags: "",
-// //     description: "",
-// //     userId,
-// // });
-// // const [progress, setProgress] = useState(0)
-// // const [videos, setVideos] = useState(null);
-// // const [loading, setLoading] = useState(true);
-// // const [singleProgress, setSingleProgress] = useState(0);
-// // const singleFileOptions = {
-// //     onUploadProgress: (progressEvent) => {
-// //         const { loaded, total } = progressEvent;
-// //         const percentage = Math.floor(((loaded / 1000) * 100) / (total / 1000));
-// //         setSingleProgress(percentage);
-// //     }
-// // }
-
-
-
-// // //fields change handle function .
-// // const fieldChangeHandle = (event) => {
-// //     setVideo({ ...video, [event.target.name]: event.target.value });
-// // };
-// // //handling file change event  .
-// // const handleFileChange = (event) => {
-// //     console.log(event.target.files[0]);
-// //     setVideos(event.target.files[0]);
-// // }
-
-// // //Upload videos function with title,description,tags .
-// // const createVideo = (event) => {
-// //     event.preventDefault();
-// //     console.log(video);
-// //     if (video.title.trim() === "") {
-// //         // toast.error("please enter title"); 
-// //         swal("Oops!", "please enter title!!", "error"); return;
-
-// //     }
-
-// //     if (video.description.trim() === "") {
-// //         // toast.error("Enter some description below 500 character");
-// //         swal("Oops!", "Enter some description below 500 character!!", "error");
-
-// //         return;
-// //     }
-
-// //     if (!videos) {
-// //         swal("Oops!", "Please select a video to upload!", "error");
-// //         return;
-// //     }
-// //     //submit call starts here .
-// //     SaveVideoInfo(video).then((data) => {
-// //         console.log(data);
-
-// //         UplaodVideo(videos, data.id, singleFileOptions).then((data) => {
-// //             setLoading(true)
-// //             swal("Uploaded!", "Video upload success!!", "success");
-// //             console.log(data);
-// //             // setVideos(event.target.files[0])
-// //             navigate('/'); // Redirect to view page after successful upload
-
-// //         }).catch((error) => {
-// //             console.log(error);
-// //         });
-// //         swal("Uploding!", "Video Uploading...!!", "success");
-// //         console.log(video);
-// //         setVideo({
-// //             userId: "", title: "", description: "", tags: "",
-// //         });
-
-// //     }).catch((error) => {
-// //         // alert("upload failed")
-// //         console.log(error);
-// //         swal("Oops!", "upload failed!", "error");
-
-// //     });
-// // }
-
-
-
 
 
 

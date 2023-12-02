@@ -11,8 +11,9 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import UserDetails from './components/Privateroute';
 import Privateroute from './components/Privateroute';
-import UserDashboard from './components/UserDashboard';
 import Logout from './components/logOut';
+import About from './components/about';
+import ContactUS from './components/contactPage';
 
 
 
@@ -28,6 +29,10 @@ const router = createBrowserRouter(
       <Route path='/registration' element={<Signup />} />
       <Route path="/viewone/:id" element={<SeeOne />} />
       <Route path='/login' element={<Login />} />
+      <Route path='/about' element={<About />} />
+      <Route path='/contact-us' element={<ContactUS />} />
+
+
 
       <Route path="/user" element={<Privateroute />} />
       <Route path="/logout" element={<Logout />} />
